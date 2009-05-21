@@ -1,6 +1,6 @@
 spec = Gem::Specification.new do |s|
   s.name        = 'responds-to-parent'
-  s.version     = '1.0.20080714'
+  s.version     = '1.0.20090521'
   s.homepage    = 'http://constancy.rubyforge.org/'
   s.summary     = "[Rails] Adds 'responds_to_parent' to your controller to" +
                   'respond to the parent document of your page.'

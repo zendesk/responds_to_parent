@@ -8,9 +8,6 @@ module RespondsToParent
     yield
     
     if performed?
-      # We're returning HTML instead of JS or XML now
-      response.headers['Content-Type'] = 'text/html; charset=UTF-8'
-      
       # Either pull out a redirect or the request body
       script =  if location = erase_redirect_results
                   "document.location.href = #{location.to_s.inspect}"
@@ -29,6 +26,9 @@ module RespondsToParent
       # Clear out the previous render to prevent double render
       erase_results
       
+      # We're returning HTML instead of JS or XML now
+      response.headers['Content-Type'] = 'text/html; charset=UTF-8'
+
       # Eval in parent scope and replace document location of this frame 
       # so back button doesn't replay action on targeted forms
       # loc = document.location to be set after parent is updated for IE

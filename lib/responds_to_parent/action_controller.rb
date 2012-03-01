@@ -9,17 +9,18 @@ module RespondsToParent
     
       if performed?
         # Either pull out a redirect or the request body
-        script =  if location = erase_redirect_results
+        script =  if response.headers['Location']
+                    #TODO: erase_redirect_results is missing in rails 3.0 
                     "document.location.href = '#{self.class.helpers.escape_javascript location.to_s}'"
                   else
                     response.body || ''
                   end
 
-        # Clear out the previous render to prevent double render
-        erase_results
-
         # We're returning HTML instead of JS or XML now
         response.headers['Content-Type'] = 'text/html; charset=UTF-8'
+
+        # Clear out the previous render to prevent double render
+        response.request.env['action_controller.instance'].instance_variable_set(:@_response_body, nil)
 
         # Eval in parent scope and replace document location of this frame 
         # so back button doesn't replay action on targeted forms

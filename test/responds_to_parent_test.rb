@@ -1,7 +1,4 @@
-ENV["RAILS_ENV"] = "test"
-require File.dirname(__FILE__) + '/../../../../config/environment'
-require 'test/unit'
-require 'test_help'
+require File.expand_path("../test_helper", __FILE__)
 
 class IFrameController < ActionController::Base
   def normal

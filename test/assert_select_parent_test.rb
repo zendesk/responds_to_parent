@@ -1,7 +1,4 @@
-ENV["RAILS_ENV"] = "test"
-require File.dirname(__FILE__) + '/../../../../config/environment'
-require 'test/unit'
-require 'test_help'
+require File.expand_path("../test_helper", __FILE__)
 
 class AssertSelectParentTest < ActionController::TestCase
   class AssertSelectParentController < ActionController::Base
@@ -105,11 +102,8 @@ class AssertSelectParentTest < ActionController::TestCase
       end
     end
 end
-require File.dirname(__FILE__) + '/../../../../config/environment'
-require 'test/unit'
-require 'test_help'
 
-class AssertSelectParentTest <  ActionController::TestCase
+class AssertSelectParentTest2 <  ActionController::TestCase
   class AssertSelectParentController < ActionController::Base
     def response_with=(content)
       @content = content
@@ -211,11 +205,8 @@ class AssertSelectParentTest <  ActionController::TestCase
       end
     end
 end
-require File.dirname(__FILE__) + '/../../../../config/environment'
-require 'test/unit'
-require 'test_help'
 
-class AssertSelectParentTest <  ActionController::TestCase
+class AssertSelectParentTest3 <  ActionController::TestCase
   class AssertSelectParentController < ActionController::Base
     def response_with=(content)
       @content = content

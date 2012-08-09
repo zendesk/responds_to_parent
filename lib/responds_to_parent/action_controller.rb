@@ -16,22 +16,28 @@ module RespondsToParent
                     response.body || ''
                   end
 
-        # We're returning HTML instead of JS or XML now
-        response.headers['Content-Type'] = 'text/html; charset=UTF-8'
-
-        # Clear out the previous render to prevent double render
-        response.request.env['action_controller.instance'].instance_variable_set(:@_response_body, nil)
-
-        # Eval in parent scope and replace document location of this frame 
+        # Eval in parent scope and replace document location of this frame
         # so back button doesn't replay action on targeted forms
         # loc = document.location to be set after parent is updated for IE
         # with(window.parent) - pull in variables from parent window
         # setTimeout - scope the execution in the windows parent for safari
         # window.eval - legal eval for Opera
-        render :text => "<html><body><script type='text/javascript' charset='utf-8'>
+        script = "<html><body><script type='text/javascript' charset='utf-8'>
           var loc = document.location;
           with(window.parent) { setTimeout(function() { window.eval('#{self.class.helpers.escape_javascript script}'); window.loc && loc.replace('about:blank'); }, 1) }
         </script></body></html>"
+
+        # We're returning HTML instead of JS or XML now
+        response.headers['Content-Type'] = 'text/html; charset=UTF-8'
+
+        # Clear out the previous render to prevent double render and then render
+        if respond_to?(:erase_results)
+          erase_results
+        else
+          instance_variable_set(:@_response_body, nil)
+        end
+
+        render :text => script
       end
     end
     alias respond_to_parent responds_to_parent

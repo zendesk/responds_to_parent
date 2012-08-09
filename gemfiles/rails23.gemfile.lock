@@ -16,7 +16,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack
+  actionpack (= 2.3.14)
   appraisal
   rake
   test-unit (>= 2.5.1)

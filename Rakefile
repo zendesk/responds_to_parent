@@ -1,9 +1,11 @@
+require 'appraisal'
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-desc 'Default: run unit tests.'
-task :default => :test
+task :default do
+  sh "bundle exec rake appraisal:install && bundle exec rake appraisal test"
+end
 
 desc 'Test the responds_to_parent plugin.'
 Rake::TestTask.new(:test) do |t|

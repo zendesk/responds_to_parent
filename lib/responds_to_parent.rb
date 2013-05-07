@@ -1,16 +1,11 @@
 require 'responds_to_parent/action_controller'
 require 'responds_to_parent/selector_assertion'
 
-module ActionController
-  class Base
-    include RespondsToParent::ActionController
-  end
-end
+ActionController::Base.send :include, RespondsToParent::ActionController
 
-module ActionController
-  module Assertions
-    module SelectorAssertions
-      include RespondsToParent::SelectorAssertion
-    end
-  end
+base = if ActionPack::VERSION::MAJOR >= 3
+  ActionDispatch::Assertions::SelectorAssertions
+else
+  ActionController::Assertions::SelectorAssertions
 end
+base.send :include, RespondsToParent::SelectorAssertion

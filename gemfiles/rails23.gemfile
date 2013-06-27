@@ -6,4 +6,5 @@ gem "appraisal"
 gem "rake"
 gem "test-unit", ">=2.5.1"
 gem "actionpack", "2.3.14"
+gem "iconv", :platforms=>:ruby_20
 

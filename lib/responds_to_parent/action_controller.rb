@@ -6,11 +6,11 @@ module RespondsToParent
     # to use IFRAME base RPC.
     def responds_to_parent(&block)
       yield
-    
+
       if performed?
         # Either pull out a redirect or the request body
         script =  if response.headers['Location']
-                    #TODO: erase_redirect_results is missing in rails 3.0 
+                    #TODO: erase_redirect_results is missing in rails 3.0
                     "document.location.href = '#{self.class.helpers.escape_javascript location.to_s}'"
                   else
                     response.body || ''
@@ -31,7 +31,7 @@ module RespondsToParent
         response.headers['Content-Type'] = 'text/html; charset=UTF-8'
 
         # Clear out the previous render to prevent double render and then render
-        if respond_to?(:erase_results)
+        if respond_to?(:erase_results, true)
           erase_results
         else
           instance_variable_set(:@_response_body, nil)

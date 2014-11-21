@@ -11,7 +11,5 @@ spec = Gem::Specification.new do |s|
   s.files = %w( README Rakefile MIT-LICENSE
                 lib/responds_to_parent.rb
                 lib/responds_to_parent/action_controller.rb
-                lib/responds_to_parent/selector_assertion.rb
-                test/responds_to_parent_test.rb
-                test/assert_select_parent_test.rb)
+                lib/responds_to_parent/selector_assertion.rb )
 end

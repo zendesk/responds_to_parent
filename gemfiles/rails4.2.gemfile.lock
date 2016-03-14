@@ -7,7 +7,7 @@ GIT
       rails (~> 4.0)
 
 PATH
-  remote: /Users/pschambacher/Code/zendesk/responds_to_parent
+  remote: ..
   specs:
     responds_to_parent (1.0.20130516)
       actionpack (>= 3.2.22, < 5.0)

@@ -1,5 +1,7 @@
 require_relative 'test_helper'
 
+FAILS_TEST_CLASS = ActionPack::VERSION::MAJOR < 4 ? Test::Unit::AssertionFailedError : MiniTest::Assertion
+
 class AssertSelectParentTest < ActionController::TestCase
   class AssertSelectParentController < ActionController::Base
     def response_with=(content)
@@ -61,7 +63,7 @@ class AssertSelectParentTest < ActionController::TestCase
       page.replace "test", "<div id=\"1\">foo</div>"
     end
 
-    assert_raise(Test::Unit::AssertionFailedError) do
+    assert_raise(FAILS_TEST_CLASS) do
       assert_select_parent do
         assert_select_rjs do
           assert_select "#nonexistent"
@@ -72,7 +74,7 @@ class AssertSelectParentTest < ActionController::TestCase
 
   def test_fail_if_no_content_for_parent
     get :not_respond_to_parent
-    assert_raise(Test::Unit::AssertionFailedError) { assert_select_parent }
+    assert_raise(FAILS_TEST_CLASS) { assert_select_parent }
   end
 
   def test_quotes
@@ -164,7 +166,7 @@ class AssertSelectParentTest2 <  ActionController::TestCase
       page.replace "test", "<div id=\"1\">foo</div>"
     end
 
-    assert_raise(Test::Unit::AssertionFailedError) do
+    assert_raise(FAILS_TEST_CLASS) do
       assert_select_parent do
         assert_select_rjs do
           assert_select "#nonexistent"
@@ -175,7 +177,7 @@ class AssertSelectParentTest2 <  ActionController::TestCase
 
   def test_fail_if_no_content_for_parent
     get :not_respond_to_parent
-    assert_raise(Test::Unit::AssertionFailedError) { assert_select_parent }
+    assert_raise(FAILS_TEST_CLASS) { assert_select_parent }
   end
 
   def test_quotes
@@ -267,7 +269,7 @@ class AssertSelectParentTest3 <  ActionController::TestCase
       page.replace "test", "<div id=\"1\">foo</div>"
     end
 
-    assert_raise(Test::Unit::AssertionFailedError) do
+    assert_raise(FAILS_TEST_CLASS) do
       assert_select_parent do
         assert_select_rjs do
           assert_select "#nonexistent"
@@ -278,7 +280,7 @@ class AssertSelectParentTest3 <  ActionController::TestCase
 
   def test_fail_if_no_content_for_parent
     get :not_respond_to_parent
-    assert_raise(Test::Unit::AssertionFailedError) { assert_select_parent }
+    assert_raise(FAILS_TEST_CLASS) { assert_select_parent }
   end
 
   def test_quotes

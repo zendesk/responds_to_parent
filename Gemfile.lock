@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     responds_to_parent (1.0.20130516)
-      actionpack (~> 3.2.22)
+      actionpack (>= 3.2.22, < 5.0)
       prototype-rails
 
 GEM
@@ -48,6 +48,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    minitest (4.7.5)
     multi_json (1.11.2)
     polyglot (0.3.5)
     power_assert (0.2.7)
@@ -100,6 +101,7 @@ DEPENDENCIES
   actionpack (~> 3.2.22)
   bump
   byebug
+  minitest (~> 4.7)
   rake
   responds_to_parent!
   test-unit

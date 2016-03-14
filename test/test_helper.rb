@@ -1,15 +1,17 @@
 require 'bundler/setup'
+require 'minitest/autorun'
 require 'action_controller'
+require 'action_view'
 require 'action_dispatch/testing/test_process'
 require 'prototype-rails/on_load_action_view'
 require 'prototype-rails/on_load_action_controller'
-require 'test/unit'
+require 'prototype-rails/selector_assertions'
 
 require_relative '../lib/responds_to_parent'
 
 ROUTES = ActionDispatch::Routing::RouteSet.new
 ROUTES.draw do
-  match ':controller(/:action(/:id(.:format)))'
+  match ':controller(/:action(/:id(.:format)))', via: :get
 end
 ROUTES.finalize!
 
@@ -20,4 +22,17 @@ module ActionController::TestCase::Behavior
     process_without_routes(*args)
   end
   alias_method_chain :process, :routes
+end
+
+class ActionController::Base
+  def _routes
+    ROUTES
+  end
+end
+
+if ActionPack::VERSION::STRING >= '4.2.0'
+  require 'rails-dom-testing'
+  ActionController::TestCase.class_eval do
+    include PrototypeRails::SelectorAssertions
+  end
 end

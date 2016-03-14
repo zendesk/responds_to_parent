@@ -1,6 +1,8 @@
-spec = Gem::Specification.new do |s|
+require_relative 'lib/responds_to_parent/version'
+
+Gem::Specification.new do |s|
   s.name        = 'responds_to_parent'
-  s.version     = '1.0.20130516'
+  s.version     = RespondsToParent::VERSION
   s.authors     = ['Michael Grosser', 'Pierre Schambacher']
   s.homepage    = 'http://github.com/zendesk/responds_to_parent'
   s.summary     = "[Rails] Adds 'responds_to_parent' to your controller to" +
@@ -16,4 +18,6 @@ spec = Gem::Specification.new do |s|
   s.add_development_dependency('rake')
   s.add_development_dependency('test-unit')
   s.add_development_dependency('byebug')
+  s.add_development_dependency('wwtd')
+  s.add_development_dependency('bump')
 end

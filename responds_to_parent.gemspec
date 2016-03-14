@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name        = 'responds_to_parent'
   s.version     = RespondsToParent::VERSION
   s.authors     = ['Michael Grosser', 'Pierre Schambacher']
-  s.homepage    = 'http://github.com/zendesk/responds_to_parent'
+  s.homepage    = 'https://github.com/zendesk/responds_to_parent'
   s.summary     = "[Rails] Adds 'responds_to_parent' to your controller to" +
                   'respond to the parent document of your page.'            +
                   'Make Ajaxy file uploads by posting the form to a hidden' +

@@ -1,3 +1,3 @@
 module RespondsToParent
-  VERSION = '1.0.20130516'.freeze
+  VERSION = '1.1.0'.freeze
 end

@@ -1,7 +1,7 @@
 GIT
-  remote: git://github.com/rails/prototype-rails.git
-  revision: 0fed929ff48c10c3b978edd3baa983a81f404dbf
-  branch: 4.2
+  remote: git://github.com/grosser/prototype-rails.git
+  revision: 4c944e45332865ae8f2a17287268394b7a88cfdf
+  branch: grosser/4.2
   specs:
     prototype-rails (4.0.0)
       rails (~> 4.0)
@@ -9,7 +9,7 @@ GIT
 PATH
   remote: ..
   specs:
-    responds_to_parent (1.0.20130516)
+    responds_to_parent (1.1.0)
       actionpack (>= 3.2.22, < 5.0)
       prototype-rails
 

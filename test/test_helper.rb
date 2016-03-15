@@ -35,4 +35,5 @@ if ActionPack::VERSION::STRING >= '4.2.0'
   ActionController::TestCase.class_eval do
     include PrototypeRails::SelectorAssertions
   end
+  ActiveSupport::TestCase.test_order = :sorted
 end

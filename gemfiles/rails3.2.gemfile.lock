@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    responds_to_parent (1.0.20130516)
+    responds_to_parent (1.1.0)
       actionpack (>= 3.2.22, < 5.0)
       prototype-rails
 

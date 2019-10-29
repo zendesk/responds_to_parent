@@ -1,0 +1,5 @@
+eval_gemfile('gemfiles/common.rb')
+
+gem 'actionpack', '~> 5.0.0'
+gem 'rails-dom-testing'
+gem 'prototype-rails', github: 'grosser/prototype-rails', branch: 'grosser/4.2'

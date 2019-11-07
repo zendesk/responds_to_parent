@@ -11,7 +11,6 @@ PATH
   specs:
     responds_to_parent (1.1.0)
       actionpack (>= 3.2.22, < 5.0)
-      prototype-rails
 
 GEM
   remote: https://rubygems.org/
@@ -60,7 +59,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
-    json (1.8.3)
+    json (1.8.6)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -126,4 +125,4 @@ DEPENDENCIES
   wwtd
 
 BUNDLED WITH
-   1.11.2
+   1.17.3

@@ -3,7 +3,6 @@ PATH
   specs:
     responds_to_parent (1.1.0)
       actionpack (>= 3.2.22, < 5.0)
-      prototype-rails
 
 GEM
   remote: https://rubygems.org/
@@ -43,7 +42,7 @@ GEM
     hike (1.2.3)
     i18n (0.7.0)
     journey (1.0.4)
-    json (1.8.3)
+    json (1.8.6)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -102,10 +101,11 @@ DEPENDENCIES
   bump
   byebug
   minitest (~> 4.7)
+  prototype-rails
   rake
   responds_to_parent!
   test-unit
   wwtd
 
 BUNDLED WITH
-   1.11.2
+   1.17.3

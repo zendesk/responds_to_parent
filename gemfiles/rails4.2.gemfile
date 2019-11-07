@@ -1,4 +1,4 @@
-eval_gemfile('gemfiles/common.rb')
+eval_gemfile('common.rb')
 
 gem 'actionpack', '~> 4.2.6'
 gem 'rails-dom-testing'

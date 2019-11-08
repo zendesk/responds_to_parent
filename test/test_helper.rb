@@ -3,10 +3,7 @@ require 'minitest/autorun'
 require 'action_controller'
 require 'action_view'
 require 'action_dispatch/testing/test_process'
-require 'prototype-rails/on_load_action_view'
-require 'prototype-rails/on_load_action_controller'
-require 'prototype-rails/selector_assertions'
-
+require_relative 'prototype-rails'
 require_relative '../lib/responds_to_parent'
 
 ROUTES = ActionDispatch::Routing::RouteSet.new

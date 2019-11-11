@@ -5,6 +5,7 @@ require 'action_view'
 require 'action_dispatch/testing/test_process'
 require_relative 'prototype-rails'
 require_relative '../lib/responds_to_parent'
+require_relative 'ruby_2.6_patch'
 
 ROUTES = ActionDispatch::Routing::RouteSet.new
 ROUTES.draw do

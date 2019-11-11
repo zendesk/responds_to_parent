@@ -1,3 +1,0 @@
-eval_gemfile('common.rb')
-
-gem 'actionpack', '~> 4.1.15'

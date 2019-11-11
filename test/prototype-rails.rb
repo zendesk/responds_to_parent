@@ -97,6 +97,7 @@ end
 
 require 'active_support/core_ext/module/aliasing'
 require 'rails/dom/testing/assertions'
+require 'action_dispatch/testing/assertions'
 require 'action_dispatch/testing/assertions/selector'
 
 #--
@@ -105,7 +106,6 @@ require 'action_dispatch/testing/assertions/selector'
 #++
 
 Rails::Dom::Testing::Assertions::SelectorAssertions.module_eval do
-# ActionDispatch::Assertions::SelectorAssertions.module_eval do
   def assert_select_rjs(*args, &block)
     rjs_type = args.first.is_a?(Symbol) ? args.shift : nil
     id       = args.first.is_a?(String) ? args.shift : nil

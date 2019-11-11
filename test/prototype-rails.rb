@@ -95,12 +95,17 @@ module ActionController
   end
 end
 
+require 'active_support/core_ext/module/aliasing'
+require 'rails/dom/testing/assertions'
+require 'action_dispatch/testing/assertions/selector'
+
 #--
 # Copyright (c) 2006 Assaf Arkin (http://labnotes.org)
 # Under MIT and/or CC By license.
 #++
 
-ActionDispatch::Assertions::SelectorAssertions.module_eval do
+Rails::Dom::Testing::Assertions::SelectorAssertions.module_eval do
+# ActionDispatch::Assertions::SelectorAssertions.module_eval do
   def assert_select_rjs(*args, &block)
     rjs_type = args.first.is_a?(Symbol) ? args.shift : nil
     id       = args.first.is_a?(String) ? args.shift : nil
@@ -144,7 +149,8 @@ ActionDispatch::Assertions::SelectorAssertions.module_eval do
     end
 
     if matches
-      assert_block("") { true } # to count the assertion
+      assert true, '' # to count the assertion
+      matches = Nokogiri::HTML::DocumentFragment.new(Nokogiri::HTML::Document.new, matches.join(''))
       if block_given? && !([:remove, :show, :hide, :toggle].include? rjs_type)
         begin
           @selected ||= nil
@@ -212,6 +218,10 @@ ActionDispatch::Assertions::SelectorAssertions.module_eval do
     else
       response_from_page_without_rjs
     end
+  end
+
+  def response_from_page
+    HTML::Document.new(@html).root
   end
   alias_method_chain :response_from_page, :rjs
 

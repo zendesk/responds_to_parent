@@ -30,7 +30,7 @@ end
 if ActionPack::VERSION::STRING >= '4.2.0'
   require 'rails-dom-testing'
   ActionController::TestCase.class_eval do
-    include PrototypeRails::SelectorAssertions
+    include Rails::Dom::Testing::Assertions::SelectorAssertions
   end
   ActiveSupport::TestCase.test_order = :sorted
 end

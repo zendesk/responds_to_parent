@@ -8,11 +8,16 @@ branches:
   only: master
 
 rvm:
-  - 2.1.8
-  - 2.2.4
-  - 2.3.0
+  - 2.4
+  - 2.5
+  - 2.6
+  - ruby-head
 
 gemfile:
   - gemfiles/rails4.2.gemfile
 
 script: bundle exec rake test
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head

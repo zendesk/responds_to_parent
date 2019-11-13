@@ -12,12 +12,5 @@ Gem::Specification.new do |s|
 
   s.files = Dir.glob('lib/**/*')
 
-  s.add_runtime_dependency('actionpack', '>= 3.2.22', '< 5.0')
-  s.add_runtime_dependency('prototype-rails')
-
-  s.add_development_dependency('rake')
-  s.add_development_dependency('minitest')
-  s.add_development_dependency('byebug')
-  s.add_development_dependency('wwtd')
-  s.add_development_dependency('bump')
+  s.add_runtime_dependency('actionpack', '>= 3.2.22', '< 6.0')
 end

@@ -1,3 +1,10 @@
 source 'https://rubygems.org'
 
-gemspec path: Bundler.root.sub(Dir.pwd, '.').sub('/gemfiles', '.')
+gemspec path: '../'
+
+gem 'rails-dom-testing'
+
+gem 'rake'
+gem 'byebug'
+gem 'wwtd'
+gem 'bump'

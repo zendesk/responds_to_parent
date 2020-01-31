@@ -57,10 +57,18 @@ class IFrameController < ActionController::Base
 end
 
 class RespondsToParentTest < ActionController::TestCase
-  def setup
+  def setup(*)
     @controller = IFrameController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
+    @request = if ActionController::TestRequest.respond_to?(:create)
+      ActionController::TestRequest.create
+    else
+      ActionController::TestRequest.new
+    end
+    @response = if defined?(ActionDispatch::TestResponse)
+      ActionDispatch::TestResponse.new
+    else
+      ActionController::TestResponse.new
+    end
   end
 
   def test_normal

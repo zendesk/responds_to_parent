@@ -39,8 +39,16 @@ class AssertSelectParentTest < ActionController::TestCase
 
   def setup
     @controller = AssertSelectParentController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
+    @request = if ActionController::TestRequest.respond_to?(:create)
+      ActionController::TestRequest.create
+    else
+      ActionController::TestRequest.new
+    end
+    @response = if defined?(ActionDispatch::TestResponse)
+      ActionDispatch::TestResponse.new
+    else
+      ActionController::TestResponse.new
+    end
   end
 
   def test_basic
@@ -142,8 +150,16 @@ class AssertSelectParentTest2 <  ActionController::TestCase
 
   def setup
     @controller = AssertSelectParentController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
+    @request = if ActionController::TestRequest.respond_to?(:create)
+      ActionController::TestRequest.create
+    else
+      ActionController::TestRequest.new
+    end
+    @response = if defined?(ActionDispatch::TestResponse)
+      ActionDispatch::TestResponse.new
+    else
+      ActionController::TestResponse.new
+    end
   end
 
   def test_basic
@@ -245,8 +261,16 @@ class AssertSelectParentTest3 <  ActionController::TestCase
 
   def setup
     @controller = AssertSelectParentController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
+    @request = if ActionController::TestRequest.respond_to?(:create)
+      ActionController::TestRequest.create
+    else
+      ActionController::TestRequest.new
+    end
+    @response = if defined?(ActionDispatch::TestResponse)
+      ActionDispatch::TestResponse.new
+    else
+      ActionController::TestResponse.new
+    end
   end
 
   def test_basic

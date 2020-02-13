@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    responds_to_parent (1.1.0)
+    responds_to_parent (2.0.0)
       actionpack (>= 3.2.22, < 6.0)
 
 GEM

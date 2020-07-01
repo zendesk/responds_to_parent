@@ -33,5 +33,6 @@ jobs:
       run: |
         gem install rake -v 13.0.0
         gem install activesupport -v 4.2.11.1 
+        gem install builder -v 3.2.3
         BUNDLE_GEMFILE=gemfiles/rails4.2.gemfile bundle install --no-deployment
         bundle exec rake test

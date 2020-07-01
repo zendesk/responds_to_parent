@@ -1,0 +1,35 @@
+name: repo-checks
+
+on:
+  pull_request:
+    branches:
+    - master
+    - deploy
+
+jobs:
+  main:
+    name: rvm-matrix
+    runs-on: zendesk-stable
+    env:
+      RAILS_ENV: test
+    continue-on-error: ${{ matrix.allow_failures }}
+    strategy:
+      fail-fast: true
+      matrix:
+        allow_failures: [false]
+        rvm:
+          - 2.4
+          - 2.5
+          - 2.6
+        include:
+          - rvm: head
+            allow_failures: true
+    steps:
+    - uses: zendesk/checkout@v2
+    - uses: zendesk/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.rvm }}
+    - name: ruby ${{ matrix.rvm }}
+      run: |
+        BUNDLE_GEMFILE=gemfiles/rails4.2.gemfile bundle install --no-deployment
+        bundle exec rake test

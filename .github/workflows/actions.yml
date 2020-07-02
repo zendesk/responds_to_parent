@@ -35,5 +35,6 @@ jobs:
         gem install activesupport -v 4.2.11.1 
         gem install builder -v 3.2.3
         gem install crass -v 1.0.5 
+        gem install loofah -v 2.3.1
         BUNDLE_GEMFILE=gemfiles/rails4.2.gemfile bundle install --force
         bundle exec rake test

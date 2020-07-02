@@ -40,5 +40,6 @@ jobs:
         gem install actionview -v 4.2.11.1
         gem install rack -v 1.6.11
         gem install actionpack -v 4.2.11.1 
+        gem install bump -v 0.8.0
         BUNDLE_GEMFILE=gemfiles/rails4.2.gemfile bundle install --force
         bundle exec rake test

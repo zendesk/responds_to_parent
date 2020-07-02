@@ -42,5 +42,6 @@ jobs:
         gem install actionpack -v 4.2.11.1 
         gem install bump -v 0.8.0
         gem install wwtd -v 1.4.0
-        BUNDLE_GEMFILE=gemfiles/rails4.2.gemfile bundle install --force
+        gem install bundler
+        BUNDLE_GEMFILE=gemfiles/rails4.2.gemfile bundle install
         bundle exec rake test

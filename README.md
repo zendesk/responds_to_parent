@@ -1,3 +1,4 @@
+![repo-checks](https://github.com/zendesk/responds_to_parent/workflows/repo-checks/badge.svg)
 # RespondsToParent
 
 ---
